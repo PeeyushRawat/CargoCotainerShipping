@@ -27,16 +27,17 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 2); /* Add a shadow for visibility */
 font-size: 3.5rem; /* Larger font size for better prominence */
 margin-bottom: 1rem; /* Increased margin for better spacing */
 font-weight: bold;
-color: rgba(255, 255, 255, 0.767);
+color: rgb(255, 255, 255);
 
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .overlay-text p {
-color: rgba(255, 255, 255, 0.733);
+color: rgba(255, 255, 255, 0.945);
 font-size: 1.6rem; /* Slightly smaller font size for paragraphs */
 line-height: 2; /* Improved line spacing for readability */
 margin: 0.5rem 0; /* Even spacing between paragraphs */
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 .overlay-text{
 margin-top: 25px;
@@ -70,7 +71,7 @@ margin-right: 30px; /* Centers content horizontally */
 padding: 0.75rem 10rem; /* Provides space inside the button */
 border-radius: 50px; /* Rounded corners */
 
-background-color: #1560c8;/* White background color */
+background-color: #1e76f0;/* White background color */
 color: #f9fafb; /* Dark blue text color */
 border: 2px solid #0a408d; /* Dark blue border color */
 font-weight: 500; /* Font weight for better readability */

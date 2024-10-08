@@ -1,82 +1,92 @@
 /* src/ContainerAvailability.css */
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+
 .video-background {
-    position: absolute; /* Position video absolutely to cover the entire container */
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the entire container */
-    z-index: -1; /* Place the video behind other content */
+    object-fit: cover; 
+    z-index: -1; 
 }
+
 .container-availability {
-    background: url('') no-repeat center center fixed;
-    background-size: cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #090808;
-   
+    color: #090808; 
+    background-image: url('/public/images/pay.jpg'); /* Classy background image */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
 }
 
-.form-container {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 20px;
-    border-radius: 10px;
+.form-containery {
+    background: rgba(255, 255, 255, 0.95); /* Slightly more opaque white */
+    padding: 40px;
+    border-radius: 15px; /* Softer corners */
     width: 100%;
-    max-width: 900px;
-    height: 400px;
-    box-shadow: 0 4px 8px rgba(79, 89, 231, 0.2);
+    max-width: 700px; /* Updated max width */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Deeper shadow for a classy look */
     text-align: center;
 }
 
-.form-container h1 {
-    margin-bottom: 20px;
+.form-containery h1 {
+    margin-bottom: 30px; /* More spacing for header */
+    font-size: 2rem; /* Increased font size */
+    color: #0051ff; /* Classy blue color for headings */
 }
 
-.form-container select, .form-container input {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
+.form-containery select, 
+.form-containery input {
+    width: calc(100% - 20px); /* Improved spacing */
+    padding: 12px; /* Increased padding for comfort */
+    margin: 15px 0; /* Increased margin for better spacing */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
     outline: none;
     font-size: 16px;
+    transition: border-color 0.3s; /* Smooth transition for focus */
 }
 
-.form-container button {
-    padding: 20px;
+.form-containery select:focus,
+.form-containery input:focus {
+    border-color: #007bff; /* Highlight border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle glow on focus */
+}
+
+.form-containery button {
+    padding: 12px 20px; /* Consistent padding */
     border: none;
-    border-radius: 5px;
-    background-color: #0395e9;
+    border-radius: 8px;
+    background-color: #007bff; /* Classy blue button */
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     outline: none;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
 }
 
-.form-container button:hover {
-    background-color: #0056b3;
+.form-containery button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
 }
 
 .error {
-    background-color: #fff; /* White background */
-    color: #d62424; /* Red text color to highlight the error */
-    padding: 15px; /* Add padding for better readability */
+    background-color: #ffdddd; /* Light red background for error */
+    color: #d62424; /* Dark red text color for visibility */
+    padding: 15px; /* Padding for better readability */
     margin: 20px auto; /* Center the error message */
     border-radius: 8px; /* Rounded corners */
     max-width: 600px; /* Limit the width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
     font-size: 16px; /* Slightly larger font size */
     text-align: center; /* Center the text */
-    border: 1px solid #ce1818;
+    border: 1px solid #ce1818; /* Red border for errors */
 }
 
 .container-list {
@@ -91,23 +101,24 @@ body {
     background: rgb(247, 247, 247);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .container-list th, .container-list td {
-    padding: 10px;
+    padding: 12px; /* More padding for table cells */
     text-align: left;
 }
 
 .container-list th {
-    background-color: #007bff;
+    background-color: #007bff; /* Classy blue for headers */
     color: #fff;
+    font-weight: bold; /* Bold text for headers */
 }
 
 .container-list tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9; /* Slightly off-white for even rows */
 }
 
 .container-list tr:hover {
-    background-color: #ddd;
+    background-color: #e2e2e2; /* Light gray for hover effect */
 }

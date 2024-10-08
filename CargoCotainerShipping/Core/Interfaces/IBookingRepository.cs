@@ -14,5 +14,6 @@ namespace Core.Interfaces
         Task AddAsync(Booking booking);
         Task<List<Booking>> GetAllBookingsByUserIdAsync(int userId);
         Task<Booking> GetByBookingIdAsync(int id);
+        Task<List<Booking>> GetAllBookings();
     }
 }

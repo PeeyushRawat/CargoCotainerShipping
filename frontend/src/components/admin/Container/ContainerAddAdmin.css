@@ -1,0 +1,115 @@
+/* ContainerAddAdmin.css */
+
+/* Full-screen background */
+.background {
+    position: fixed; /* Fixed position for full viewport */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+  
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* No repeat */
+    z-index: -1; /* Below all other content */
+}
+
+/* Main container for the form */
+.add-container-form {
+    width: 60%; /* Width of the form */
+    margin: 0 auto; /* Center the form */
+    padding: 2rem; /* Padding around the form */
+    background-color: rgba(249, 249, 249, 0.9); /* Light background color with transparency */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    position: relative; /* Position for absolute background */
+    z-index: 1; /* Ensures the form is above the background */
+}
+
+/* Dimmed overlay */
+
+/* Title styling */
+.add-container-form h1 {
+    text-align: center; /* Center the title */
+    margin-bottom: 1.5rem; /* Space below the title */
+    color: #333; /* Dark text color */
+}
+select, input[type='date'], input[type='number'] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+select:focus, input[type='date']:focus, input[type='number']:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+/* Error and success message styling */
+.errorMessage,
+.successMessage {
+    color: red; /* Red color for error */
+    font-weight: bold; /* Bold text for emphasis */
+    margin-bottom: 1rem; /* Space below the message */
+    text-align: center; /* Center the message */
+}
+
+/* Styling for each form group */
+.formGroup {
+    margin-bottom: 1.5rem; /* Space below each form group */
+}
+
+/* Label styling */
+.formLabel {
+    display: block; /* Block display for labels */
+    margin-bottom: 0.5rem; /* Space below the label */
+    font-weight: bold; /* Bold label */
+    color: #555; /* Dark grey color for labels */
+}
+.add-container-form h1{
+    color: rgb(163, 16, 16);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: xx-large;
+    box-shadow: #333;
+    outline: 2px rgb(8, 35, 122);
+}
+/* Input and select styling */
+.formInput,
+.formSelect {
+    width: 100%; /* Full width for inputs/selects */
+    padding: 0.5rem; /* Padding inside inputs/selects */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+.form-group label{
+    font-size: larger;
+    font-weight: 700;
+}
+/* Change border color on focus */
+.formInput:focus,
+.formSelect:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove outline */
+}
+
+/* Button styling */
+.ac {
+    width: 100%; /* Full width for button */
+    padding: 0.5rem; /* Padding inside button */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1.2rem; /* Larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; 
+    margin-top: 20px;/* Smooth background color transition */
+}
+
+/* Button hover effect */
+.submitButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

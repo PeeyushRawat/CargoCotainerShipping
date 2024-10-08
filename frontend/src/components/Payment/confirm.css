@@ -75,13 +75,15 @@
 .detail-item h2 {
     margin: 0;
     font-size: 18px;
-    color: #343a40;
+    color: #3a4e63;
 }
 
 .detail-item p {
-    font-size: 16px;
-    color: #495057;
+    font-size: 20px;
+    color: #ff0000;
     margin: 10px 0 0;
+    font-weight: bold;
+
 }
 
 .home-button {

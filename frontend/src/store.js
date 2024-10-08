@@ -6,15 +6,21 @@ import { authReducer, forgotPasswordReducer
     // ,userReducer 
     } from './reducers/userReducers';
 import { bookingReducer } from './reducers/bookingReducers';
-import { myOrdersReducer } from './reducers/orderReducers';
+import { myOrdersReducer, newOrderReducer } from './reducers/orderReducers';
+import { allContainerReducer, newContainerReducer } from './reducers/containerReducers';
+import { allPortsReducer } from './reducers/portReducers';
 
 
 // Combine all reducers
 const rootReducer = combineReducers({
-    auth: authReducer,     
+    auth: authReducer, 
+    newContainer: newContainerReducer,    
     // user: userReducer  
+    newOrder: newOrderReducer,
     containerSelected: bookingReducer,
     myOrders: myOrdersReducer,
+    allContainers: allContainerReducer,
+    allPorts: allPortsReducer,
     forgotPassword: forgotPasswordReducer
 });
 

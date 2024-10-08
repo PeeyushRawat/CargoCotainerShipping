@@ -1,10 +1,40 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom'; // To fetch the passed props
+import { useNavigate } from 'react-router-dom'; // To fetch the passed props
 import './confirm.css'; // Import the CSS file
 
+import { useDispatch, useSelector } from 'react-redux'
+import { removeContainerFromCart } from '../../actions/bookingActions';
+
 const ConfirmationPage = () => {
-    const location = useLocation();
-    const { locationName, destinationName, availableFrom, type, size } = location.state || {};
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const { user, loading } = useSelector(state => state.auth)
+    const { containerId, locationId, destinationId, availableFrom, price } = useSelector(state => state.containerSelected);
+    const type = 'Gas Container';
+    const size = 20;
+
+    const Ports = [
+        'Nhava Sheva',
+        'Mumbai Port',
+        'Chennai Port',
+        'Ennore Port',
+        'Kolkata Port',
+        'Haldia Port',
+        'Cochin Port',
+        'Mundra Port',
+        'Kandla Port',
+        'Vishakhapatnam Port'
+    ]
+    
+    const ShippingCompanies = [
+        'ABS Marine',
+        'Evergreen Line',
+        'ONE Ocean Network Express',
+        'OOCL',
+        'Essar Shipping'
+    ]
 
     return (
         <div className="confirmation-page">
@@ -25,23 +55,27 @@ const ConfirmationPage = () => {
                     </div>
                     <div className="detail-item">
                         <h2>Source Port</h2>
-                        <p>{locationName}</p>
+                        <p>{Ports[locationId-1]}</p>
                     </div>
                     <div className="detail-item">
                         <h2>Destination Port</h2>
-                        <p>{destinationName}</p>
+                        <p>{Ports[destinationId-1]}</p>
                     </div>
                     <div className="detail-item">
                         <h2>Available From</h2>
                         <p>{availableFrom}</p>
                     </div>
+                    <div className="detail-item">
+                        <h2>Amount Paid</h2>
+                        <p>{price}</p>
+                    </div>
                 </div>
 
-                <button className="home-button" onClick={() => window.location.href = '/orders'}>
-                   Check Orders
+                <button className="home-button" onClick={() => {navigate('/orders'); dispatch(removeContainerFromCart());}}>
+                    Check Orders
                 </button>
-                <button className="home-buttonn" onClick={() => window.location.href = '/'}>
-                   Go Back Home
+                <button className="home-buttonn" onClick={() => { navigate('/'); dispatch(removeContainerFromCart()); }}>
+                    Go Back Home
                 </button>
             </div>
         </div>

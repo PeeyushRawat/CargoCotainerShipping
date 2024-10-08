@@ -23,11 +23,34 @@ namespace Infrastructure.Repositories
         {
             return await _context.Containers
                 .Where(c => c.CurrentPortId == portId && c.AvailableFrom <= availableFrom)
+                .Include(c => c.ShippingCompany)
+                .Include(c => c.CurrentPort)
                 .ToListAsync();
         }
+
+        //Admin
+        public async Task<List<Container>> GetAllContainers()
+        {
+            return await _context.Containers
+                .Include(c => c.ShippingCompany)
+                .Include(c => c.CurrentPort)
+                .ToListAsync();
+        }
+
+        //Admin
+        public async Task<Container> AddAsync(Container container)
+        {
+            var newContainer = _context.Containers.Add(container);
+            await _context.SaveChangesAsync();
+            return newContainer.Entity;
+        }
+
         public async Task<Container> GetByIdAsync(int id)
         {
-            return await _context.Containers.FindAsync(id);
+            return await _context.Containers
+                .Include(c => c.ShippingCompany)
+                .Include(c => c.CurrentPort)
+                .FirstOrDefaultAsync(c => c.Id == id);
         }
         public async Task UpdateAsync(Container container)
         {

@@ -21,5 +21,28 @@ namespace Application.Services
         {
             return await _containerRepository.GetAvailableContainersByPortAndDateAsync(portId, availableFrom);
         }
+        public async Task<List<Container>> GetAllContainersAdmin()
+        {
+            return await _containerRepository.GetAllContainers();
+        }
+        public async Task<Container> NewContainer(
+            string type,
+            int size,
+            int currentPortId,
+            DateOnly availableFrom,
+            int shippingCompanyId,
+            double capacity
+        )
+        {
+            Container container = new Container();
+            container.Type = type;
+            container.Size = size;
+            container.Capacity = capacity;
+            container.CurrentPortId = currentPortId;
+            container.AvailableFrom = availableFrom;
+            container.ShippingCompanyId = shippingCompanyId;
+
+            return await _containerRepository.AddAsync(container);
+        }
     }
 }
