@@ -112,7 +112,7 @@ const ShippingCompanies = [
             <div className="cost-display">
               <p><strong>Container Number:</strong> {containerId}</p>
               <p><strong>Source Port :</strong> {Ports[locationId-1]}</p>
-              <p><strong>Destination Port:</strong> {Ports[destinationId]}</p>
+              <p><strong>Destination Port:</strong> {Ports[destinationId-1]}</p>
               <p><strong>Shipping date:</strong> {availableFrom}</p>
               <p><strong>Total Cost:</strong> ${price}</p>
             </div>

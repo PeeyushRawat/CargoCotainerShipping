@@ -16,7 +16,7 @@ namespace Application.Services
         private readonly IEmailNotificationRepository _emailNotificationRepository;
         private readonly IUserRepository _userRepository;
         
-
+        // Future Task : make it dynamic with new ports added in a location.
         public List<List<int>> DISTANCE_GRAPH = new List<List<int>>
         {
             new List<int>() { 0 , 1 , 5 , 5 , 7 , 7 , 3 , 2 , 3 , 6 },
@@ -54,6 +54,12 @@ namespace Application.Services
             {
                 throw new Exception("Your date sholud not less Than Today's Date");
             }
+
+            if (sourcePortId == destinationPortId)
+            {
+                throw new Exception("Your source port and destination port should be different");
+            }
+
             //var user = await _userRepository.GetByIdAsync(userId);
             //if (user == null) throw new Exception("User not found.");
 
