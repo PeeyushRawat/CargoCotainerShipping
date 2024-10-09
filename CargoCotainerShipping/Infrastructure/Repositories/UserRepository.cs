@@ -25,6 +25,11 @@ namespace Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<List<User>> GetAllUsers()
+        {
+            return  await _context.Users.ToListAsync();
+        }
+
         public async Task<User> GetUserByEmail(string email)
         {
             return await _context.Users
@@ -50,6 +55,15 @@ namespace Infrastructure.Repositories
                 //_context.UpdateWithoutValidation(user);
 
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<User> UpdateUser(User user)
+        {
+            _context.Users.UpdateRange(user);
+            await  _context.SaveChangesAsync();
+            return user;
+            
+            
         }
     }
 }

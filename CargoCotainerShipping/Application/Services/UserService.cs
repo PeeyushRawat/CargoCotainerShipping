@@ -21,19 +21,27 @@ namespace Application.Services
 
         public async Task<User> RegisterUser(string name, string email, string password, string phoneNo)
         {
-            var user = new User
+            var oldUser = await _userRepository.GetUserByEmail(email);
+            if (oldUser == null)
             {
-                Name = name,
-                Email = email,
-                Password = password,
-                Phone = phoneNo
-            };
+                var user = new User
+                {
+                    Name = name,
+                    Email = email,
+                    Password = password,
+                    Phone = phoneNo
+                };
 
-            user.HashPassword(); // Hash the password before saving
-            await _userRepository.CreateUser(user);
-            return user;
+                user.HashPassword(); // Hash the password before saving
+                await _userRepository.CreateUser(user);
+                return user;
+            }
+            else
+            {
+
+                throw new Exception("User is already exists, try with new Email");
+            }
         }
-
         public async Task<User> LoginUser(string email, string password)
         {
             var user = await _userRepository.GetUserByEmail(email);
@@ -102,6 +110,42 @@ namespace Application.Services
             await _userRepository.SaveUserAsync(user, true);
         }
 
+        //User updates
+
+        public async Task<User> UpdateUser(int userId, string name, string email, string phoneNo)
+        {
+            var validUser = await _userRepository.GetUserById(userId);
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                // Update Name if provided
+                validUser.Name = name;
+            }
+
+            if (!string.IsNullOrEmpty(email))
+            {
+                // Update Email if provided
+                validUser.Email = email;
+            }
+
+            if (!string.IsNullOrEmpty(phoneNo))
+            {
+                // Update Phone Number if provided
+                validUser.Phone = phoneNo;
+            }
+
+            // Save the updated user details back to the repository
+            await _userRepository.UpdateUser(validUser);
+
+            // Return the updated user object
+            return validUser;
+        }
+
+        public async Task<List<User>> GetAllUsers()
+        {
+            var result = await _userRepository.GetAllUsers();
+            return result;
+        }
         private string HashToken(string token)
         {
             using var sha256 = System.Security.Cryptography.SHA256.Create();

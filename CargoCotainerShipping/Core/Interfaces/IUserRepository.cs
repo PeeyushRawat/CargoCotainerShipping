@@ -14,5 +14,7 @@ namespace Core.Interfaces
         Task<User> GetUserById(int id);
         Task<User?> GetUserByResetTokenAsync(string resetToken);
         Task SaveUserAsync(User user, bool validateBeforeSave);
+        Task<User> UpdateUser(User user);
+        Task<List<User>> GetAllUsers();
     }
 }

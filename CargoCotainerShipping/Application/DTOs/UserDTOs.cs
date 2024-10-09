@@ -14,7 +14,7 @@ namespace Application.DTOs
             public string Email { get; set; }
             public string Password { get; set; }
             public string PhoneNo { get; set; }
-    }
+        }
 
         public class LoginRequest
         {
@@ -37,4 +37,13 @@ namespace Application.DTOs
         [Required]
         public string ConfirmPassword { get; set; }
     }
+
+    public class UpdateUserRequest
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string PhoneNo { get; set; }
+    }
+
 }
